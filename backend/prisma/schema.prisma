@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  galleryImages GalleryImage[]
+  videos        Video[]
+  towers        Tower[]
+
+  @@map("projects")
+}
+
+model GalleryImage {
+  id        String  @id @default(uuid())
+  projectId String  @map("project_id")
+  url       String
+  caption   String?
+  sortOrder Int     @default(0) @map("sort_order")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("gallery_images")
+}
+
+model Video {
+  id           String  @id @default(uuid())
+  projectId    String  @map("project_id")
+  url          String
+  thumbnailUrl String? @map("thumbnail_url")
+  title        String?
+  sortOrder    Int     @default(0) @map("sort_order")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("videos")
+}
+
+model Tower {
+  id          String @id @default(uuid())
+  projectId   String @map("project_id")
+  name        String
+  imageUrl    String @map("image_url")
+  imageWidth  Int    @map("image_width")
+  imageHeight Int    @map("image_height")
+  sortOrder   Int    @default(0) @map("sort_order")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  units   Unit[]
+
+  @@map("towers")
+}
+
+model Unit {
+  id            String   @id @default(uuid())
+  towerId       String   @map("tower_id")
+  unitNumber    String   @map("unit_number")
+  floor         Int
+  config        String
+  areaSqft      Decimal  @map("area_sqft")
+  price         Decimal?
+  polygonPoints String   @map("polygon_points")
+  status        String   @default("available")
+
+  tower   Tower    @relation(fields: [towerId], references: [id], onDelete: Cascade)
+  booking Booking?
+
+  @@unique([towerId, unitNumber])
+  @@map("units")
+}
+
+model Booking {
+  id           String   @id @default(uuid())
+  unitId       String   @unique @map("unit_id")
+  customerName String   @map("customer_name")
+  phoneNumber  String   @map("phone_number")
+  bookedAt     DateTime @default(now()) @map("booked_at")
+
+  unit Unit @relation(fields: [unitId], references: [id])
+
+  @@map("bookings")
+}

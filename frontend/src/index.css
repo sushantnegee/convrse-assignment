@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', system-ui, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  background: #0b0d12;
+  color: #f1f5f9;
+}
+
+/* Design tokens ported from the convrse.ai reference app so the kiosk shares
+   its glass-panel / dark-theme visual language. */
+:root {
+  --ui-bg: rgba(0, 0, 0, 0.35);
+  --ui-pill-bg: rgba(10, 12, 22, 0.82);
+  --ui-pill-bg-deep: rgba(10, 12, 22, 0.92);
+  --ui-color: #ffffff;
+  --ui-color-muted: rgba(255, 255, 255, 0.55);
+  --ui-active-bg: #ffffff;
+  --ui-active-color: #000000;
+  --ui-hover: rgba(255, 255, 255, 0.10);
+  --ui-border: rgba(255, 255, 255, 0.07);
+  --ui-border-subtle: rgba(255, 255, 255, 0.05);
+  --ui-border-pill: rgba(255, 255, 255, 0.13);
+  --card-text: #f1f5f9;
+  --card-text-muted: #94a3b8;
+  --card-border-default: rgba(255, 255, 255, 0.08);
+  --card-border-selected: #ffffff;
+  --card-border-hover: rgba(255, 255, 255, 0.70);
+
+  --status-available-bg: #dcfce7;
+  --status-available-color: #15803d;
+  --status-booked-bg: #fee2e2;
+  --status-booked-color: #b91c1c;
+}
+
+/* Thin, on-brand scrollbar for scrollable panels — visible feedback that
+   content continues, rather than hiding scrollbars everywhere. */
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 213, 240, 0.4) rgba(255, 255, 255, 0.05);
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(99, 213, 240, 0.4);
+  border-radius: 10px;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 213, 240, 0.7);
+}
+
+/* Material Symbols is a ligature font — the icon "name" (e.g. "domain") is
+   the text content, rendered as a glyph. Only used by the entry splash. */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
