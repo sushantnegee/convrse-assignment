@@ -24,7 +24,7 @@ export default function GalleryView({ projectId, state, dispatch, onNavigateTab 
 
   return (
     <div className="fixed inset-0 z-20 bg-[#111316]">
-      <AppTopBar activeTab="gallery" onNavigate={onNavigateTab} />
+      <AppTopBar activeTab="gallery" onNavigate={onNavigateTab} projectId={projectId} />
       <AppSideNav activeTab="gallery" onNavigate={onNavigateTab} projectName={project?.name} />
 
       <main className="absolute bottom-0 left-[120px] right-0 top-20 overflow-hidden">

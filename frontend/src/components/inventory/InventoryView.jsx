@@ -45,7 +45,7 @@ export default function InventoryView({ projectId, state, dispatch, onNavigateTa
 
   return (
     <div className="fixed inset-0 z-20 bg-[#111316]">
-      <AppTopBar activeTab="inventory" onNavigate={onNavigateTab} />
+      <AppTopBar activeTab="inventory" onNavigate={onNavigateTab} projectId={projectId} />
       <AppSideNav activeTab="inventory" onNavigate={onNavigateTab} projectName={project?.name} />
 
       <div className="absolute bottom-0 left-[120px] right-0 top-20 flex flex-col lg:flex-row">

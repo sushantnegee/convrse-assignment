@@ -26,7 +26,7 @@ export default function VideoView({ projectId, state, dispatch, onNavigateTab })
 
   return (
     <div className="fixed inset-0 z-20 bg-[#111316]">
-      <AppTopBar activeTab="videos" onNavigate={onNavigateTab} />
+      <AppTopBar activeTab="videos" onNavigate={onNavigateTab} projectId={projectId} />
       <AppSideNav activeTab="videos" onNavigate={onNavigateTab} projectName={project?.name} />
 
       <main className="absolute bottom-0 left-[120px] right-0 top-20 overflow-hidden">
