@@ -10,12 +10,13 @@ import { towersRouter, unitsRouter } from "./routes/inventory";
 import { createBookingsRouter } from "./routes/bookings";
 import { errorHandler } from "./middleware/errorHandler";
 import { attachSockets } from "./sockets";
+import { getCorsOrigin } from "./lib/corsOrigins";
 
 const app = express();
 const httpServer = createServer(app);
 const io = attachSockets(httpServer);
 
-app.use(cors({ origin: process.env.CORS_ORIGIN ?? "*" }));
+app.use(cors({ origin: getCorsOrigin() }));
 app.use(express.json());
 app.use("/assets", express.static(path.join(__dirname, "..", "public", "assets")));
 

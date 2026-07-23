@@ -1,5 +1,6 @@
 import type { Server as HttpServer } from "node:http";
 import { Server, type Socket } from "socket.io";
+import { getCorsOrigin } from "../lib/corsOrigins";
 
 type MirrorState = Record<string, unknown>;
 
@@ -10,7 +11,7 @@ const mirrorStates = new Map<string, MirrorState>();
 
 export function attachSockets(httpServer: HttpServer) {
   const io = new Server(httpServer, {
-    cors: { origin: process.env.CORS_ORIGIN ?? "*" },
+    cors: { origin: getCorsOrigin() },
   });
 
   io.on("connection", (socket: Socket) => {
