@@ -6,8 +6,8 @@ export default function VideoGrid({ videos, onOpenVideo, interactive = true, hov
   const [first, ...rest] = videos;
 
   return (
-    <div className="grid grid-cols-12 gap-6 pb-10" style={{ gridAutoRows: 280 }}>
-      <div className={`row-span-2 ${rest.length > 0 ? "col-span-8" : "col-span-12"}`}>
+    <div className="grid grid-cols-1 gap-6 pb-10 lg:grid-cols-12" style={{ gridAutoRows: 280 }}>
+      <div className={`row-span-2 ${rest.length > 0 ? "lg:col-span-8" : "lg:col-span-12"}`}>
         <VideoTile
           video={first}
           variant="feature"
@@ -19,7 +19,7 @@ export default function VideoGrid({ videos, onOpenVideo, interactive = true, hov
       </div>
 
       {rest.map((video) => (
-        <div key={video.id} className="col-span-4">
+        <div key={video.id} className="lg:col-span-4">
           <VideoTile
             video={video}
             variant="medium"

@@ -8,8 +8,8 @@ export default function GalleryGrid({ images, onOpenImage, interactive = true, h
   const hasSecondary = Boolean(second || third);
 
   return (
-    <div className="grid grid-cols-12 gap-6 pb-24">
-      <div className={`h-[400px] ${hasSecondary ? "col-span-8" : "col-span-12"}`}>
+    <div className="grid grid-cols-1 gap-6 pb-24 lg:grid-cols-12">
+      <div className={`h-[280px] lg:h-[400px] ${hasSecondary ? "lg:col-span-8" : "lg:col-span-12"}`}>
         <GalleryTile
           image={first}
           variant="feature"
@@ -21,7 +21,7 @@ export default function GalleryGrid({ images, onOpenImage, interactive = true, h
       </div>
 
       {hasSecondary && (
-        <div className="col-span-4 flex h-[400px] flex-col gap-6">
+        <div className="flex h-[320px] flex-col gap-4 lg:col-span-4 lg:h-[400px] lg:gap-6">
           {second && (
             <div className="flex-1">
               <GalleryTile
@@ -50,7 +50,7 @@ export default function GalleryGrid({ images, onOpenImage, interactive = true, h
       )}
 
       {rest.map((image) => (
-        <div key={image.id} className="col-span-4 h-[240px]">
+        <div key={image.id} className="h-[200px] lg:col-span-4 lg:h-[240px]">
           <GalleryTile
             image={image}
             variant="small"

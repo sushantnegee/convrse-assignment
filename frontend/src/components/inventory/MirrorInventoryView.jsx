@@ -39,7 +39,7 @@ export default function MirrorInventoryView({ projectId, state }) {
       <AppTopBar activeTab="inventory" onNavigate={NOOP} interactive={false} />
       <AppSideNav activeTab="inventory" onNavigate={NOOP} projectName={project?.name} interactive={false} />
 
-      <div className="absolute bottom-0 left-[120px] right-0 top-20 flex">
+      <div className="absolute bottom-0 left-[120px] right-0 top-20 flex flex-col lg:flex-row">
         {towers.status === "loading" && <Spinner label="Loading towers…" />}
         {towers.status === "error" && <ErrorBanner message={towers.error} onRetry={towers.reload} />}
         {towers.status === "ready" && towers.towers.length === 0 && (
@@ -59,6 +59,10 @@ export default function MirrorInventoryView({ projectId, state }) {
               onSelectUnit={NOOP}
               interactive={false}
               scrollRatio={state.scroll.inventory}
+              statusFilter={state.inventory.statusFilter}
+              configFilter={state.inventory.configFilter}
+              onStatusFilterChange={NOOP}
+              onConfigFilterChange={NOOP}
             />
 
             <div className="h-full flex-1 overflow-hidden">

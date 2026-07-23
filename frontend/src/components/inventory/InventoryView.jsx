@@ -48,7 +48,7 @@ export default function InventoryView({ projectId, state, dispatch, onNavigateTa
       <AppTopBar activeTab="inventory" onNavigate={onNavigateTab} />
       <AppSideNav activeTab="inventory" onNavigate={onNavigateTab} projectName={project?.name} />
 
-      <div className="absolute bottom-0 left-[120px] right-0 top-20 flex">
+      <div className="absolute bottom-0 left-[120px] right-0 top-20 flex flex-col lg:flex-row">
         {towers.status === "loading" && <Spinner label="Loading towers…" />}
         {towers.status === "error" && <ErrorBanner message={towers.error} onRetry={towers.reload} />}
         {towers.status === "ready" && towers.towers.length === 0 && (
@@ -67,6 +67,10 @@ export default function InventoryView({ projectId, state, dispatch, onNavigateTa
               onHoverUnit={(unitId) => dispatch({ type: "inventory:unitHover", unitId })}
               onSelectUnit={handleSelectUnit}
               onScrollChange={(ratio) => dispatch({ type: "scroll:update", section: "inventory", ratio })}
+              statusFilter={state.inventory.statusFilter}
+              configFilter={state.inventory.configFilter}
+              onStatusFilterChange={(status) => dispatch({ type: "inventory:statusFilter", status })}
+              onConfigFilterChange={(config) => dispatch({ type: "inventory:configFilter", config })}
             />
 
             <div className="h-full flex-1 overflow-hidden">

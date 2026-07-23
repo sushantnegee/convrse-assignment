@@ -27,16 +27,16 @@ export default function MirrorGalleryView({ projectId, state }) {
       <AppSideNav activeTab="gallery" onNavigate={NOOP} projectName={project?.name} interactive={false} />
 
       <main className="absolute bottom-0 left-[120px] right-0 top-20 overflow-hidden">
-        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-10 pointer-events-none">
+        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-5 pointer-events-none lg:p-10">
           <div className="mb-8 flex items-end justify-between">
             <div>
               <h1
-                className="text-4xl text-[#e2e2e6]"
+                className="text-2xl text-[#e2e2e6] lg:text-4xl"
                 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
               >
                 {project?.name ?? "Gallery"}
               </h1>
-              <p className="mt-2 text-lg text-[#bcc9cc]">Curated visuals of the masterplan.</p>
+              <p className="mt-2 text-base text-[#bcc9cc] lg:text-lg">Curated visuals of the masterplan.</p>
             </div>
           </div>
 

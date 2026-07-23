@@ -26,6 +26,8 @@ export function createInitialSessionState(projectId) {
       selectedTowerId: null,
       hoveredUnitId: null,
       selectedUnitId: null,
+      statusFilter: "all",
+      configFilter: "all",
       bookingDialog: {
         open: false,
         unitId: null,
@@ -133,6 +135,12 @@ export function sessionReducer(state, action) {
 
     case "inventory:unitSelect":
       return { ...state, inventory: { ...state.inventory, selectedUnitId: action.unitId }, updatedAt };
+
+    case "inventory:statusFilter":
+      return { ...state, inventory: { ...state.inventory, statusFilter: action.status }, updatedAt };
+
+    case "inventory:configFilter":
+      return { ...state, inventory: { ...state.inventory, configFilter: action.config }, updatedAt };
 
     case "booking:dialogOpen":
       return {

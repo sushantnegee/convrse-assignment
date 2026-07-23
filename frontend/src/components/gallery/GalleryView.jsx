@@ -28,16 +28,16 @@ export default function GalleryView({ projectId, state, dispatch, onNavigateTab 
       <AppSideNav activeTab="gallery" onNavigate={onNavigateTab} projectName={project?.name} />
 
       <main className="absolute bottom-0 left-[120px] right-0 top-20 overflow-hidden">
-        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-10">
+        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-5 lg:p-10">
           <div className="mb-8 flex items-end justify-between">
             <div>
               <h1
-                className="text-4xl text-[#e2e2e6]"
+                className="text-2xl text-[#e2e2e6] lg:text-4xl"
                 style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}
               >
                 {project?.name ?? "Gallery"}
               </h1>
-              <p className="mt-2 text-lg text-[#bcc9cc]">Curated visuals of the masterplan.</p>
+              <p className="mt-2 text-base text-[#bcc9cc] lg:text-lg">Curated visuals of the masterplan.</p>
             </div>
           </div>
 

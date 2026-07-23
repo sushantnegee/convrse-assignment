@@ -30,12 +30,12 @@ export default function VideoView({ projectId, state, dispatch, onNavigateTab })
       <AppSideNav activeTab="videos" onNavigate={onNavigateTab} projectName={project?.name} />
 
       <main className="absolute bottom-0 left-[120px] right-0 top-20 overflow-hidden">
-        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-10">
+        <section ref={scrollRef} className="styled-scrollbar h-full overflow-y-auto p-5 lg:p-10">
           <div className="mb-10">
-            <h1 className="mb-2 text-4xl text-[#e2e2e6]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
+            <h1 className="mb-2 text-2xl text-[#e2e2e6] lg:text-4xl" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 600 }}>
               Project Showcases
             </h1>
-            <p className="max-w-2xl text-lg text-[#bcc9cc]">
+            <p className="max-w-2xl text-base text-[#bcc9cc] lg:text-lg">
               Explore {project?.name ?? "the project"} through cinematic tours and design walkthroughs.
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function EntrySplash({ onEnter, interactive = true }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#111316] via-transparent to-[#111316]/40" />
       </div>
 
-      <header className="fixed left-0 right-0 top-0 z-10 flex h-20 items-center justify-between px-10">
+      <header className="fixed left-0 right-0 top-0 z-10 flex h-20 items-center justify-between px-5 md:px-10">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#63d5f0] shadow-lg">
             <span className="material-symbols-outlined text-[#003640]" style={{ fontVariationSettings: "'FILL' 1" }}>
@@ -35,7 +35,7 @@ export default function EntrySplash({ onEnter, interactive = true }) {
         </div>
       </header>
 
-      <main className="relative z-10 flex h-full flex-col justify-end px-10 pb-24">
+      <main className="relative z-10 flex h-full flex-col justify-end px-5 pb-24 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,8 +48,8 @@ export default function EntrySplash({ onEnter, interactive = true }) {
               style={{
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 700,
-                fontSize: 48,
-                lineHeight: "56px",
+                fontSize: "clamp(32px, 6vw, 48px)",
+                lineHeight: 1.15,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -75,7 +75,7 @@ export default function EntrySplash({ onEnter, interactive = true }) {
           </div>
         </motion.div>
 
-        <div className="absolute bottom-12 right-10 flex items-center gap-4 opacity-60">
+        <div className="absolute bottom-12 right-10 hidden items-center gap-4 opacity-60 md:flex">
           <div className="text-right">
             <div className="text-[12px] font-medium text-[#bcc9cc]">CURATED BY</div>
             <div className="text-[14px] font-semibold tracking-wide text-[#e2e2e6]">SUSHANT KUMAR</div>
