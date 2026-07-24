@@ -117,6 +117,7 @@ What mirrors: active tab, gallery preview open/close and which image, video sele
 
 ## Known Limitations
 
+- **No Login/signup at this stage - No authentication
 - **Display video playback is muted.** Browsers block programmatic unmuted autoplay on a page with no prior user gesture, which the display page never has by design (zero local interaction). Reasonable for a showroom screen that isn't expected to carry its own audio, but worth calling out.
 - **Gallery images and video thumbnails are external `picsum.photos` URLs**, not self-hosted. The project videos themselves were switched to self-hosted files after the original external sample-video bucket started returning 403s mid-build with no warning — the same risk still exists for the still-external gallery/thumbnail images. If `picsum.photos` becomes slow or unreachable during a live demo, gallery tiles will render as empty boxes even though nothing else in the app is broken.
 - **No automated test suite.** All verification during development was done through ad-hoc Playwright scripts (screenshots, computed-style checks, concurrent-request simulations), not a committed test suite.
