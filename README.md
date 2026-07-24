@@ -133,7 +133,7 @@ What mirrors: active tab, gallery preview open/close and which image, video sele
 - Automated tests: at minimum, a concurrency test for the atomic booking endpoint and an integration test for the mirroring round-trip.
 - Search inventory by unit number, in addition to the existing status/config filters.
 
-## Beyond the Scope
+## Beyond the Scope - implimented
 
 The assignment's required mirroring list is: active tab, image previews, video playback, inventory selection, and dialogs. Everything below goes past that list — built because a real sales executive standing next to a customer would expect the *entire* screen, not just the major state transitions, to be shared.
 
